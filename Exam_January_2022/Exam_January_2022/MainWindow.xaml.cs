@@ -85,24 +85,27 @@ namespace Exam_January_2022
             //get a reference to the selected item
             Member selectedMember = (Member)box.SelectedItem;
 
-            //Set the fields to the appropriate property values of the selected item
-            TBLK_Name.Text = selectedMember.name;
-            TBLK_JoinDate.Text = selectedMember.JoinDate.ToShortDateString();
-            TBLK_BasicFee.Text = $"€{selectedMember.Fee.ToString()}";
-            TBLK_PaymentSchedule.Text = $"{selectedMember.paymentSchedule.ToString()} - €{CalculateFees(selectedMember):0.##}";
-           
-            //Get the memberType and set teh field to the appropriate type
-            foreach (var member in memberAccounts)
+            if(selectedMember != null)
             {
-                if(member.Key.name == selectedMember.name)
-                {
-                    TBLK_MemberType.Text = $"{member.Value}";
-                }
-            }
+                //Set the fields to the appropriate property values of the selected item
+                TBLK_Name.Text = selectedMember.name;
+                TBLK_JoinDate.Text = selectedMember.JoinDate.ToShortDateString();
+                TBLK_BasicFee.Text = $"€{selectedMember.Fee.ToString()}";
+                TBLK_PaymentSchedule.Text = $"{selectedMember.paymentSchedule.ToString()} - €{CalculateFees(selectedMember):0.##}";
 
-            //Set the renewal data and daysto renewal field values
-            TBLK_RenewalDate.Text = selectedMember.RenewalDate.ToShortDateString();
-            TBLK_DaysToRenewal.Text = selectedMember.DateToRenewal.ToString();
+                //Get the memberType and set teh field to the appropriate type
+                foreach (var member in memberAccounts)
+                {
+                    if (member.Key.name == selectedMember.name)
+                    {
+                        TBLK_MemberType.Text = $"{member.Value}";
+                    }
+                }
+
+                //Set the renewal data and daysto renewal field values
+                TBLK_RenewalDate.Text = selectedMember.RenewalDate.ToShortDateString();
+                TBLK_DaysToRenewal.Text = selectedMember.DateToRenewal.ToString();
+            }
         }
 
         /// <summary>

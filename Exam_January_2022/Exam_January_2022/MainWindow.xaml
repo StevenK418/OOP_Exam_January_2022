@@ -19,10 +19,10 @@
         <Label Content="Join Date:" HorizontalAlignment="Left" Margin="305,119,0,0" VerticalAlignment="Top"/>
         <TextBlock x:Name="TBLK_RenewalDate" HorizontalAlignment="Left" Margin="436,204,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top"/>
         <TextBlock x:Name="TBLK_JoinDate" HorizontalAlignment="Left" Margin="436,125,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top"/>
-        <RadioButton x:Name="RDBTN_All" Content="All" HorizontalAlignment="Left" Margin="40,365,0,0" VerticalAlignment="Top" GroupName="FilterType"/>
-        <RadioButton x:Name="RDBTN_Regular" Content="Regular" HorizontalAlignment="Left" Margin="85,365,0,0" VerticalAlignment="Top" GroupName="FilterType"/>
-        <RadioButton x:Name="RDBTN_Senior" Content="Senior" HorizontalAlignment="Left" Margin="155,365,0,0" VerticalAlignment="Top" GroupName="FilterType"/>
-        <RadioButton x:Name="RDBTN_Junior" Content="Junior" HorizontalAlignment="Left" Margin="215,365,0,0" VerticalAlignment="Top" GroupName="FilterType"/>
+        <RadioButton x:Name="RDBTN_All" Content="All" HorizontalAlignment="Left" Margin="40,365,0,0" VerticalAlignment="Top" GroupName="FilterType" Checked="radioButton_Selected"/>
+        <RadioButton x:Name="RDBTN_Regular" Content="Regular" HorizontalAlignment="Left" Margin="85,365,0,0" VerticalAlignment="Top" GroupName="FilterType" Checked="radioButton_Selected"/>
+        <RadioButton x:Name="RDBTN_Senior" Content="Senior" HorizontalAlignment="Left" Margin="155,365,0,0" VerticalAlignment="Top" GroupName="FilterType" Checked="radioButton_Selected"/>
+        <RadioButton x:Name="RDBTN_Junior" Content="Junior" HorizontalAlignment="Left" Margin="215,365,0,0" VerticalAlignment="Top" GroupName="FilterType" Checked="radioButton_Selected"/>
         <Label Content="Days to renewal:" HorizontalAlignment="Left" Margin="304,225,0,0" VerticalAlignment="Top"/>
         <TextBlock x:Name="TBLK_DaysToRenewal" HorizontalAlignment="Left" Margin="436,230,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top"/>
         <Label Content="Member Type:" HorizontalAlignment="Left" Margin="304,250,0,0" VerticalAlignment="Top"/>

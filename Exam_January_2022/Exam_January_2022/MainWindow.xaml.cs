@@ -4,7 +4,8 @@
  * Date:                07/01/2022
  * Lab:                 Exam_January_2022
  * Description:         "Club Members"
- * Developer notes:      
+ * Developer notes:     "Calulation methods may be missing or incorrect due to me running out of time. 
+ *                      Much time was spent reformatting test data to get program to work and debugging issues". 
  * Github: 
  *                      Clone: "https://github.com/StevenK418/OOP_Exam_January_2022.git"
  *                      View Online: "https://github.com/StevenK418/OOP_Exam_January_2022"
@@ -63,6 +64,7 @@ namespace Exam_January_2022
             memberAccounts.Add(sm2, "SeniorMember");
             memberAccounts.Add(sm3, "SeniorMember");
 
+            //Add the members to a basic list also to act as item source for list box
             members.Add(jm1);
             members.Add(jm2);
             members.Add(m1);
@@ -71,7 +73,6 @@ namespace Exam_January_2022
             members.Add(sm1);
             members.Add(sm2);
             members.Add(sm3);
-
 
             //Set the source of the members listbox to the members dictionary List
             LSTBX_MembersList.ItemsSource = members;
@@ -101,6 +102,89 @@ namespace Exam_January_2022
             }
             TBLK_RenewalDate.Text = selectedMember.RenewalDate.ToShortDateString();
             TBLK_DaysToRenewal.Text = selectedMember.DateToRenewal.ToString();
+        }
+
+        /// <summary>
+        /// This was to calculate fees but ran out of time, sadly!
+        /// </summary>
+        /// <param name="member"></param>
+        private void CalculateFees(Member member)
+        {
+           /* decimal fees;
+            //Get the memberType and set teh field to the appropriate type
+            foreach (var clubMember in memberAccounts)
+            {
+                if (clubMember.Key.name == member.name)
+                {
+                    if (clubMember.Value == "   Member")
+                    {
+                        if (clubMember.Key.paymentSchedule == member.PaymentSchedule.monthly)
+                        {
+
+                        }
+                        else if(clubMember.Value == "JuniorMember")
+                        {
+
+                        }
+                    }
+                    else if(clubMember.Value == "JuniorMember")
+                    {
+
+                    }
+                }
+            }
+            return fees;*/
+        }
+
+        private void radioButton_Selected(object sender, RoutedEventArgs e)
+        {
+            //Retrieve and store the checked radio button sending the event
+            RadioButton radioButton = (RadioButton)sender;
+
+            //Check the radio button that's selected
+            if (radioButton == RDBTN_All)
+            {
+                FilterView("All");
+            }
+            else if (radioButton == RDBTN_Regular)
+            {
+                FilterView("Member");
+            }
+            else if (radioButton == RDBTN_Senior)
+            {
+                FilterView("SeniorMember");
+            }
+            else if (radioButton == RDBTN_Junior)
+            {
+                FilterView("JuniorMember");
+            }
+        }
+
+        /// <summary>
+        /// Changes the view of the Listbox to members matching a given category type.
+        /// </summary>
+        /// <param name="category"></param>
+        private void FilterView(string category)
+        {
+            List<Member> categorizedAMembers = new List<Member>();
+
+            //Iterate through members collection
+            foreach (var member in memberAccounts)
+            {
+                //If the member has the type specified, add it to the new List
+                if (member.Value == category)
+                {
+                    categorizedAMembers.Add(member.Key);
+                }
+                else if (category == "All")
+                {
+                    //Otherwise, if All is selected, add each member to the list
+                    categorizedAMembers.Add(member.Key);
+                }
+            }
+
+            //Set the source of the listbox to the new List
+            LSTBX_MembersList.ItemsSource = categorizedAMembers;
         }
     }
 }

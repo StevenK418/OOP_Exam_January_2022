@@ -89,9 +89,8 @@ namespace Exam_January_2022
             TBLK_Name.Text = selectedMember.name;
             TBLK_JoinDate.Text = selectedMember.JoinDate.ToShortDateString();
             TBLK_BasicFee.Text = $"€{selectedMember.Fee.ToString()}";
-            TBLK_PaymentSchedule.Text = $"{selectedMember.paymentSchedule.ToString()} -";
-            //TBLK_RenewalDate.Text = $"{selectedMember.ren}";
-
+            TBLK_PaymentSchedule.Text = $"{selectedMember.paymentSchedule.ToString()} - €{CalculateFees(selectedMember):0.##}";
+           
             //Get the memberType and set teh field to the appropriate type
             foreach (var member in memberAccounts)
             {
@@ -100,6 +99,8 @@ namespace Exam_January_2022
                     TBLK_MemberType.Text = $"{member.Value}";
                 }
             }
+
+            //Set the renewal data and daysto renewal field values
             TBLK_RenewalDate.Text = selectedMember.RenewalDate.ToShortDateString();
             TBLK_DaysToRenewal.Text = selectedMember.DateToRenewal.ToString();
         }
@@ -108,10 +109,10 @@ namespace Exam_January_2022
         /// This was to calculate fees but ran out of time, sadly!
         /// </summary>
         /// <param name="member"></param>
-        private void CalculateFees(Member member)
+        private decimal CalculateFees(Member member)
         {
-           /* decimal fees;
-            //Get the memberType and set teh field to the appropriate type
+           decimal fees = member.Fee / 12;
+            /*//Get the memberType and set teh field to the appropriate type
             foreach (var clubMember in memberAccounts)
             {
                 if (clubMember.Key.name == member.name)
@@ -132,8 +133,8 @@ namespace Exam_January_2022
 
                     }
                 }
-            }
-            return fees;*/
+            }*/
+            return fees;
         }
 
         private void radioButton_Selected(object sender, RoutedEventArgs e)

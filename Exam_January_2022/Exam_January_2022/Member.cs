@@ -21,6 +21,25 @@ namespace Exam_January_2022
         public decimal Fee { get; set; }
         public PaymentSchedule? paymentSchedule { get; set; }
 
+        public DateTime RenewalDate 
+        { 
+            get
+            {
+                //Add a year to join date 
+                return JoinDate.AddYears(1);
+            } 
+        }
+
+        public double DateToRenewal 
+        { 
+            get 
+            {
+                DateTime startDate = JoinDate;
+                DateTime endDate =  RenewalDate;
+                return (endDate - startDate).TotalDays;
+            } 
+        }
+
 
         /// <summary>
         /// Paramterised constructor. Initializes properties values on instatiation

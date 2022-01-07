@@ -99,6 +99,8 @@ namespace Exam_January_2022
                     TBLK_MemberType.Text = $"{member.Value}";
                 }
             }
+            TBLK_RenewalDate.Text = selectedMember.RenewalDate.ToShortDateString();
+            TBLK_DaysToRenewal.Text = selectedMember.DateToRenewal.ToString();
         }
     }
 }
